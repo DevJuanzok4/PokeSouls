@@ -61,6 +61,7 @@ bulbasaur = Pokemon.new("Bulbasaur", "150", "15", "Planta")
 squirtle = Pokemon.new("Squirtle", "120", "20", "Água")
 
 # Equipe Rocket
+
 # Recruta
 torchic = Pokemon.new("Torchic", "50", "20", "Fogo")
 raltz = Pokemon.new("Raltz", "60", "25", "Fada")
@@ -85,10 +86,11 @@ Alakazam = Pokemon.new("110", "", "", "")
  = Pokemon.new("", "", "", "")
 
 
-print "Qual é o seu nome jovem? "
+print "AHM! que? quem é você?"
 nome = gets.chomp
-puts "uau #{nome}, que nome legal!"
-
+puts "ahh.... #{nome}, sabe, é dificil encontrar alguem por essas bandas, depois do último ataque do rei Giovanni tem sido
+dificil sobreviver, diversos ataques dos caçadores da equipe rocket e pókemons agressivos, mas... enfim, não ande por ai sem proteção, vamos escolha um pókemon!
+end
 class EscolherPokemon
   def self.escolherInicial
     puts "Qual Pókemon vc escolhe?"
