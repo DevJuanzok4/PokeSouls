@@ -62,25 +62,27 @@ squirtle = Pokemon.new("Squirtle", "120", "20", "Água")
 
 # Equipe Rocket
 
-# Recruta
+# Bobo da corte
 torchic = Pokemon.new("Torchic", "50", "20", "Fogo")
 raltz = Pokemon.new("Raltz", "60", "25", "Fada")
 lapras = Pokemon.new("Lapras", "200", "70", "água")
 
-# Sierra
+# Bruxa Sierra
 geodude = Pokemon.new("Geodude", "70", "30", "Pedra")
 gardevoir = Pokemon.new("Gardevoir", "100", "60", "Fada")
 gyarados = Pokemon.new("Gyarados", "200", "85", "Dragão")
 
-# Arlo
+#  Arlo
 Aipom = Pokemon.new("Aipom", "50", "", "")
 Alakazam = Pokemon.new("110", "", "", "")
  = Pokemon.new("", "", "", "")
 
+# Ministro da Guerra Cliff
  = Pokemon.new("", "", "", "")
  = Pokemon.new("", "", "", "")
  = Pokemon.new("", "", "", "")
 
+# Rei GIovanny
  = Pokemon.new("", "", "", "")
  = Pokemon.new("", "", "", "")
  = Pokemon.new("", "", "", "")
