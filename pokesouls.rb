@@ -97,7 +97,7 @@ class EscolherPokemon
     puts "1. Bulbasaur"
     puts "2. Charmander"
     puts "3. Squirtle"
-    puts "4. pik...pera oque?"
+    puts "4. pik... pera oque?"
 
     escolha = gets.chomp.to_i
 
