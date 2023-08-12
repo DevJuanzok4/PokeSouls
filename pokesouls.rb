@@ -63,29 +63,29 @@ squirtle = Pokemon.new("Squirtle", "120", "20", "Água")
 # Equipe Rocket
 
 # Bobo da corte
-torchic = Pokemon.new("Torchic", "50", "20", "Fogo")
-raltz = Pokemon.new("Raltz", "60", "25", "Fada")
-lapras = Pokemon.new("Lapras", "200", "70", "água")
+torchic = Pokemon.new("Torchic", "50", "30", "Fogo")
+raltz = Pokemon.new("Raltz", "60", "35", "Fada")
+lapras = Pokemon.new("Lapras", "200", "80", "água")
 
 # Bruxa Sierra
 geodude = Pokemon.new("Geodude", "70", "30", "Pedra")
-gardevoir = Pokemon.new("Gardevoir", "100", "60", "Fada")
-gyarados = Pokemon.new("Gyarados", "200", "85", "Dragão")
+gardevoir = Pokemon.new("Gardevoir", "100", "70", "Fada")
+gyarados = Pokemon.new("Gyarados", "200", "95", "Dragão")
 
 #  Nobre Arlo
-aipom = Pokemon.new("Aipom", "50", "30", "Normal")
-alakazam = Pokemon.new("Alakazam", "70", "70", "Psiquico")
-snorlax = Pokemon.new("Snorlax", "300", "20", "Normal")
+aipom = Pokemon.new("Aipom", "50", "40", "Normal")
+alakazam = Pokemon.new("Alakazam", "70", "80", "Psiquico")
+snorlax = Pokemon.new("Snorlax", "300", "30", "Normal")
 
 # Ministro da Guerra Cliff
- = Pokemon.new("", "", "", "")
- = Pokemon.new("", "", "", "")
- = Pokemon.new("", "", "", "")
+aerodactyl = Pokemon.new("Aerodactyl", "120", "60", "Voador/Dragão")
+gallade = Pokemon.new("Gallade", "100", "80", "Lutador")
+tyranitar = Pokemon.new("Tyranitar", "250", "110", "Pedra/Dragão")
 
 # Rei GIovanny
- = Pokemon.new("", "", "", "")
- = Pokemon.new("", "", "", "")
- = Pokemon.new("", "", "", "")
+persian = Pokemon.new("Persian", "70", "50", "normal")
+garchomp = Pokemon.new("Garchomp", "85", "100", "Dragão/Terra")
+mewtwo = Pokemon.new("Mewtwo", "500", "150", "Psiquico")
 
 
 print "AHM! que? quem é você?"
