@@ -76,26 +76,50 @@ class EscolherPokemon
 end
 
 # Criando instâncias de Pokémon
-torchic = Pokemon.new("Torchic", 50, 30, "Fogo")
-raltz = Pokemon.new("Raltz", 60, 35, "Fada")
-lapras = Pokemon.new("Lapras", 200, 80, "Água")
+pokemons_cadastrados = [
+torchic = Pokemon.new("Torchic", 50, 30, "Fogo"),
+raltz = Pokemon.new("Raltz", 60, 35, "Fada"),
+lapras = Pokemon.new("Lapras", 200, 80, "Água"),
 
-geodude = Pokemon.new("Geodude", 70, 30, "Pedra")
-gardevoir = Pokemon.new("Gardevoir", 100, 70, "Fada")
-gyarados = Pokemon.new("Gyarados", 200, 95, "Dragão")
+geodude = Pokemon.new("Geodude", 70, 30, "Pedra"),
+gardevoir = Pokemon.new("Gardevoir", 100, 70, "Fada"),
+gyarados = Pokemon.new("Gyarados", 200, 95, "Dragão"),
 
-aipom = Pokemon.new("Aipom", 50, 40, "Normal")
-alakazam = Pokemon.new("Alakazam", 70, 80, "Psíquico")
-snorlax = Pokemon.new("Snorlax", 300, 30, "Normal")
+aipom = Pokemon.new("Aipom", 50, 40, "Normal"),
+alakazam = Pokemon.new("Alakazam", 70, 80, "Psíquico"),
+snorlax = Pokemon.new("Snorlax", 300, 30, "Normal"),
 
-aerodactyl = Pokemon.new("Aerodactyl", 120, 60, "Voador/Dragão")
-gallade = Pokemon.new("Gallade", 100, 80, "Lutador")
-tyranitar = Pokemon.new("Tyranitar", 250, 110, "Pedra/Dragão")
+aerodactyl = Pokemon.new("Aerodactyl", 120, 60, "Voador/Dragão"),
+gallade = Pokemon.new("Gallade", 100, 80, "Lutador"),
+tyranitar = Pokemon.new("Tyranitar", 250, 110, "Pedra/Dragão"),
 
-persian = Pokemon.new("Persian", 70, 50, "Normal")
-garchomp = Pokemon.new("Garchomp", 85, 100, "Dragão/Terra")
+persian = Pokemon.new("Persian", 70, 50, "Normal"),
+garchomp = Pokemon.new("Garchomp", 85, 100, "Dragão/Terra"),
 mewtwo = Pokemon.new("Mewtwo", 500, 150, "Psíquico")
+]
 
+pokebolas = 8
+chance_fugir = 0.5
+
+def capturar_pokemon(pokemons, pokebolas, chance_fugir)
+ if pokebolas > 1
+   puts "Você encontraste um Pokémon selvagem"
+   puts "Pressione Enter para tentar capturar ele!..."
+   gets.chomp
+
+   if rand <= chance_fugir
+     puts "Merda! o Pokémon Fugiu"
+else
+  pokemon_aleatorio = pokemons.sample
+  puts "\e[32mVocê capturou um #{pokemon_aleatorio.nome_pokemon}\e[32m"
+
+  pokebolas -= 1
+end
+else
+  puts "Você não tem mais Pokébolas!"
+end
+
+ end
 print "AHM! Quem é você? "
 nome = gets.chomp
 puts "Ah... meu bom #{nome}, compreenda que é uma tarefa árdua encontrar alguém nestas paragens. Desde o último ataque do Rei Giovanni, sobreviver tem se tornado uma empreitada difícil. Inúmeros embates contra os infames caçadores da Equipe Rocket e Pokémon agressivos têm assolado nossa jornada. Portanto, rogo que não vagueie desprotegido por essas terras. Venha, escolhamos um Pokémon!"
@@ -112,9 +136,9 @@ loop do
 
   case escolha
   when 1
-    puts "Bem...."
+    puts "aaaa"
   when 2
-    puts "Ow"
+    capturar_pokemon(pokemons_cadastrados, pokebolas, chance_fugir)
   when 3
     puts "Nesses tempos antigos, a região de Kanto estava mergulhada em escuridão devido aos ataques dos Caçadores Rocket, servos leais do temível Rei Giovanni.\n Cidades outrora pacíficas estavam sob constante ameaça, assoladas por pokémons corrompidos e monstros agressivos.\n
 
