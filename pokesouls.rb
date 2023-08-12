@@ -88,8 +88,8 @@ Alakazam = Pokemon.new("110", "", "", "")
 
 print "AHM! que? quem é você?"
 nome = gets.chomp
-puts "ahh.... #{nome}, sabe, é dificil encontrar alguem por essas bandas, depois do último ataque do rei Giovanni tem sido
-dificil sobreviver, diversos ataques dos caçadores da equipe rocket e pókemons agressivos, mas... enfim, não ande por ai sem proteção, vamos escolha um pókemon!
+puts "Ah... meu bom #{nome}, compreenda que é uma tarefa árdua encontrar alguém nestas paragens. Desde o último ataque do Rei Giovanni, sobreviver tem se tornado uma empreitada difícil. Inúmeros embates contra os infames caçadores da Equipe Rocket e Pokémon agressivos têm assolado nossa jornada. Portanto, rogo que não vagueie desprotegido por essas terras. Venha, escolhamos um Pokémon!"
+ end
 end
 class EscolherPokemon
   def self.escolherInicial
@@ -97,7 +97,7 @@ class EscolherPokemon
     puts "1. Bulbasaur"
     puts "2. Charmander"
     puts "3. Squirtle"
-    puts "4. pik...,pera oque?"
+    puts "4. pik...pera oque?"
 
     escolha = gets.chomp.to_i
 
