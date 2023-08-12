@@ -72,10 +72,10 @@ geodude = Pokemon.new("Geodude", "70", "30", "Pedra")
 gardevoir = Pokemon.new("Gardevoir", "100", "60", "Fada")
 gyarados = Pokemon.new("Gyarados", "200", "85", "Dragão")
 
-#  Arlo
-Aipom = Pokemon.new("Aipom", "50", "", "")
-Alakazam = Pokemon.new("110", "", "", "")
- = Pokemon.new("", "", "", "")
+#  Nobre Arlo
+aipom = Pokemon.new("Aipom", "50", "30", "Normal")
+alakazam = Pokemon.new("Alakazam", "70", "70", "Psiquico")
+snorlax = Pokemon.new("Snorlax", "300", "20", "Normal")
 
 # Ministro da Guerra Cliff
  = Pokemon.new("", "", "", "")
