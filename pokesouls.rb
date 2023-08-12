@@ -102,3 +102,26 @@ puts "Ah... meu bom #{nome}, compreenda que é uma tarefa árdua encontrar algu�
 
 pokemon_inicial = EscolherPokemon.escolherInicial
 puts "Você escolheu #{pokemon_inicial.checar_pokedex}!"
+
+loop do
+  puts "1. Progredir na história"
+  puts "2. Capturar Pokémon"
+  puts "3. Ver história"
+  puts "4. Sair"
+  escolha = gets.chomp.to_i
+
+  case escolha
+  when 1
+    puts "Bem...."
+  when 2
+    puts "Ow"
+  when 3
+    puts "Nesses tempos antigos, a região de Kanto estava mergulhada em escuridão devido aos ataques dos Caçadores Rocket, servos leais do temível Rei Giovanni.\n Cidades outrora pacíficas estavam sob constante ameaça, assoladas por pokémons corrompidos e monstros agressivos.\n
+
+    No meio desse caos, um único treinador, munido de coragem e determinação, encontrou um parceiro improvável - um único Pokémon disposto a lutar por sua causa.\n Juntos, eles começaram a desafiar os Caçadores Rocket, buscando unir outros treinadores e pokémons resistentes que compartilhavam sua vontade de desafiar o regime de Giovanni."
+  when 4
+    puts "Chegou a hora de nos separarmos, mas apenas temporariamente. Que nossos caminhos se cruzem novamente em breve, e que vossas jornadas sejam seguras e prósperas. Até que nos encontremos novamente, " + nome
+  else
+    puts "Opção inválida! Escolha de 1 a 4."
+  end
+end
