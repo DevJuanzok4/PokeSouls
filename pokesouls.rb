@@ -119,7 +119,7 @@ def capturar_pokemon(pokemons_cadastrados, pokebolas, chance_fugir)
     if rand <= chance_fugir
       puts "O Pokémon fugiu!"
     else
-      id_pokemon = rand(1..19)
+      id_pokemon = rand(5..19)
       pokemon_aleatorio = pokemons_cadastrados.values.find { |pokemon| id_pokemon == id_pokemon}
 
       if pokemon_aleatorio
