@@ -98,10 +98,12 @@ garchomp = Pokemon.new("Garchomp", 85, 100, "Dragão/Terra"),
 mewtwo = Pokemon.new("Mewtwo", 500, 150, "Psíquico")
 ]
 
-pokebolas = 8
+pokebolas = 6
 chance_fugir = 0.5
 
 def capturar_pokemon(pokemons, pokebolas, chance_fugir)
+  system("clear") || system("cls")
+
  if pokebolas > 1
    puts "Você encontraste um Pokémon selvagem"
    puts "Pressione Enter para tentar capturar ele!..."
@@ -114,6 +116,7 @@ else
   puts "\e[32mVocê capturou um #{pokemon_aleatorio.nome_pokemon}\e[32m"
 
   pokebolas -= 1
+  puts "Você agora tem #{pokebolas} Pokébolas restantes."
 end
 else
   puts "Você não tem mais Pokébolas!"
