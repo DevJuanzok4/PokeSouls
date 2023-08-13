@@ -1,9 +1,9 @@
 class Jogador
-  attr_reader :nome, :time
+  attr_reader :nome, :time_jogador
 
   def initialize(nome, time)
     @nome = nome
-    @time = time
+    @time_jogador = time_jogador
   end
 end
 
@@ -35,19 +35,26 @@ class Pokemon
     @tipo = tipo
   end
 
+#função de atacar
   def atacar(outro_pokemon)
     outro_pokemon.levar_dano(@dano)
   end
+
+#função de dano
 
   def levar_dano(dano)
     @hp -= dano
     @hp = 0 if @hp < 0
   end
 
+#função de visualizar pokemon
+
   def checar_pokedex
     "#{nome_pokemon} (Tipo: #{tipo}, HP: #{hp})"
   end
 end
+
+#escolha do pokemon inicial
 
 class EscolherPokemon
   def self.escolherInicial
@@ -75,7 +82,8 @@ class EscolherPokemon
   end
 end
 
-# Criando instâncias de Pokémon
+# Pokémons
+
 pokemons_cadastrados = [
 torchic = Pokemon.new("Torchic", 50, 30, "Fogo"),
 raltz = Pokemon.new("Raltz", 60, 35, "Fada"),
@@ -98,10 +106,13 @@ garchomp = Pokemon.new("Garchomp", 85, 100, "Dragão/Terra"),
 mewtwo = Pokemon.new("Mewtwo", 500, 150, "Psíquico")
 ]
 
+
+
 # Captura de pókemons
 
 pokebolas = 6
 chance_fugir = 0.5
+
 def capturar_pokemon(pokemons, pokebolas, chance_fugir)
   while pokebolas > 0
     puts "Você encontrou um Pokémon selvagem!"
@@ -136,9 +147,13 @@ loop do
   puts "1. Progredir na história"
   puts "2. Capturar Pokémon"
   puts "3. Ver história"
-  puts "4. Sair"
+  puts "4. Meu time"
+  puts "5. Sair"
   escolha = gets.chomp.to_i
 
+# Pókemos capturados
+
+capturados = []
 
 # Iicio do case
 
@@ -149,11 +164,19 @@ loop do
     capturar_pokemon(pokemons_cadastrados, pokebolas, chance_fugir)
   when 3
     puts "Nesses tempos antigos, a região de Kanto estava mergulhada em escuridão devido aos ataques dos Caçadores Rocket, servos leais do temível Rei Giovanni.\n Cidades outrora pacíficas estavam sob constante ameaça, assoladas por pokémons corrompidos e monstros agressivos.\n
-
     No meio desse caos, um único treinador, munido de coragem e determinação, encontrou um parceiro improvável - um único Pokémon disposto a lutar por sua causa.\n Juntos, eles começaram a desafiar os Caçadores Rocket, buscando unir outros treinadores e pokémons resistentes que compartilhavam sua vontade de desafiar o regime de Giovanni."
   when 4
-    puts "Chegou a hora de nos separarmos, mas apenas temporariamente. Que nossos caminhos se cruzem novamente em breve, e que vossas jornadas sejam seguras e prósperas. Até que nos encontremos novamente, " + nome
+    if capturados.empty?
+      puts "Você ainda não capturou nenhum Pokémon."
+    else
+      puts "Pokémons capturados:"
+      capturados.each do |pokemon|
+        puts "#{pokemon.nome_pokemon} (Tipo: #{pokemon.tipo}, HP: #{pokemon.hp})"
+      end
+    end
+  when 5
+    puts "Chegou a hora de nos separarmos, mas apenas temporariamente. Que nossos caminhos se cruzem novamente em breve, e que vossas jornadas sejam seguras e prósperas. Até que nos encontremos novamente,"  + nome
   else
-    puts "Opção inválida! Escolha de 1 a 4."
+    puts "Opção inválida! Escolha de 1 a 5."
   end
 end
