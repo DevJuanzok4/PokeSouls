@@ -1,3 +1,4 @@
+# Classe Jogador
 class Jogador
   attr_reader :nome, :time_jogador
 
@@ -7,6 +8,8 @@ class Jogador
   end
 end
 
+
+# Classe de Recrutas
 class RecrutaEquipeRocket
   attr_reader :nome_oponente, :team
 
@@ -16,6 +19,7 @@ class RecrutaEquipeRocket
   end
 end
 
+# Classe de Oponentes
 class Oponente
   attr_reader :nome_oponente, :team
 
@@ -25,6 +29,7 @@ class Oponente
   end
 end
 
+# Classe Pokemon
 class Pokemon
   attr_reader :nome_pokemon, :hp, :dano, :tipo
 
@@ -54,8 +59,7 @@ class Pokemon
   end
 end
 
-#escolha do pokemon inicial
-
+# Escolha do pokemon inicial
 class EscolherPokemon
   def self.escolherInicial
     puts "Qual Pokémon você escolhe?"
@@ -83,17 +87,7 @@ class EscolherPokemon
 end
 
 
-
-
-pokemons = {
-
-
-
-
-}
-
-# Pokémons
-
+# Hash de Pokémons cadastrados para os bosses e para capturas
 pokemons_cadastrados = {
   "Torchic" => Pokemon.new("Torchic", 50, 30, "Fogo"),
   "Raltz" => Pokemon.new("Raltz", 60, 35, "Fada"),
@@ -112,23 +106,9 @@ pokemons_cadastrados = {
   "Mewtwo" => Pokemon.new("Mewtwo", 500, 150, "Psíquico")
 }
 
-# Convertendo as chaves da hash em um array
-pokemons_keys = pokemons_cadastrados.keys
 
-# Chave aleatória
-pokemon_aleatorio_key = pokemons_keys.sample
-
-# pokemon aleatório com a chave escolhida
-pokemon_aleatorio = pokemons_cadastrados[pokemon_aleatorio_key]
-
-
-
-# Captura de pókemons
-
-pokebolas = 6
-chance_fugir = 0.5
-
-def capturar_pokemon(pokemons, pokebolas, chance_fugir)
+# Função de captura de pokemons
+def capturar_pokemon(pokemon, pokebolas, chance_fugir)
   while pokebolas > 0
     puts "Você encontrou um Pokémon selvagem!"
     puts "Pressione Enter para tentar capturá-lo..."
@@ -137,8 +117,11 @@ def capturar_pokemon(pokemons, pokebolas, chance_fugir)
     if rand <= chance_fugir
       puts "O Pokémon fugiu!"
     else
-      pokemon_aleatorio = pokemons.sample
-      puts "Você capturou um #{pokemon_aleatorio.nome}!"
+      pokemons_keys = pokemon.keys
+      pokemon_aleatorio_key = pokemons_keys.sample
+      pokemon_aleatorio = pokemon[pokemon_aleatorio_key]
+
+      puts "Você capturou um #{pokemon_aleatorio.nome_pokemon}!"
       pokebolas -= 1
       puts "Você ainda tem #{pokebolas} Pokébolas restantes."
     end
@@ -147,17 +130,21 @@ def capturar_pokemon(pokemons, pokebolas, chance_fugir)
   puts "Você não tem mais Pokébolas!"
 end
 
-# começo do jogo
+#Variaveis de captura de pokemons
+pokebolas = 6
+chance_fugir = 0.5
 
+
+# começo do jogo
 print "AHM! Quem é você? "
 nome = gets.chomp
+
 puts "Ah... meu bom #{nome}, compreenda que é uma tarefa árdua encontrar alguém nestas paragens. Desde o último ataque do Rei Giovanni, sobreviver tem se tornado uma empreitada difícil. Inúmeros embates contra os infames caçadores da Equipe Rocket e Pokémon agressivos têm assolado nossa jornada. Portanto, rogo que não vagueie desprotegido por essas terras. Venha, escolhamos um Pokémon!"
 
 pokemon_inicial = EscolherPokemon.escolherInicial
 puts "Você escolheu #{pokemon_inicial.checar_pokedex}!"
 
 # Menu do PokeSouls
-
 loop do
   puts "1. Progredir na história"
   puts "2. Capturar Pokémon"
@@ -170,8 +157,20 @@ loop do
 
 capturados = []
 
-# Iicio do case
+# Visualização de pokemons capturados
+def mostrar_pokemons_capturados(capturados)
+  if capturados.empty?
+    puts "Você ainda não capturou nenhum Pokémon."
+  else
+    puts "Pokémons capturados:"
+    capturados.each do |pokemon|
+      puts "#{capturados.nome_pokemon} (Tipo: #{pokemon.tipo}, HP: #{pokemon.hp})"
+    end
+  end
+end
 
+
+# Iicio do case de Menu
   case escolha
   when 1
     puts "aaaa"
@@ -181,14 +180,9 @@ capturados = []
     puts "Nesses tempos antigos, a região de Kanto estava mergulhada em escuridão devido aos ataques dos Caçadores Rocket, servos leais do temível Rei Giovanni.\n Cidades outrora pacíficas estavam sob constante ameaça, assoladas por pokémons corrompidos e monstros agressivos.\n
     No meio desse caos, um único treinador, munido de coragem e determinação, encontrou um parceiro improvável - um único Pokémon disposto a lutar por sua causa.\n Juntos, eles começaram a desafiar os Caçadores Rocket, buscando unir outros treinadores e pokémons resistentes que compartilhavam sua vontade de desafiar o regime de Giovanni."
   when 4
-    if capturados.empty?
-      puts "Você ainda não capturou nenhum Pokémon."
-    else
+
       puts "Pokémons capturados:"
-      capturados.each do |pokemon|
-        puts "#{pokemon.nome_pokemon} (Tipo: #{pokemon.tipo}, HP: #{pokemon.hp})"
-      end
-    end
+      mostrar_pokemons_capturados(capturados)
   when 5
     puts "Chegou a hora de nos separarmos, mas apenas temporariamente. Que nossos caminhos se cruzem novamente em breve, e que vossas jornadas sejam seguras e prósperas. Até que nos encontremos novamente,"  + nome
   else
