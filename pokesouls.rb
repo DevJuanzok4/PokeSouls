@@ -120,7 +120,7 @@ def capturar_pokemon(pokemons_cadastrados, pokebolas, chance_fugir)
       puts "O Pokémon fugiu!"
     else
       id_pokemon = rand(5..19)
-      pokemon_aleatorio = pokemons_cadastrados.values.find { |pokemon| id_pokemon == id_pokemon}
+      pokemon_aleatorio = pokemons_cadastrados.values.find { |pokemon| puts pokemon }
 
       if pokemon_aleatorio
         capturados << pokemon_aleatorio
@@ -128,7 +128,7 @@ def capturar_pokemon(pokemons_cadastrados, pokebolas, chance_fugir)
         puts "Você capturou um #{pokemon_aleatorio.nome_pokemon}!"
         puts "Você ainda tem #{pokebolas} Pokébolas restantes."
       else
-        puts "Nenhum Pokémon encontrado com o ID #{pokemon_id_aleatorio}."
+        puts "Nenhum Pokémon encontrado com o ID #{id_pokemon}."
       end
     end
   end
@@ -147,10 +147,10 @@ chance_fugir = 0.5
 
 
 # começo do jogo
-print "AHM! Quem é você? "
+print "\e[33m Ancião ~ Em verdade vos digo, quem sois vós, senhor?\e[0m\n Digite seu Nome nobre viajante:"
 nome = gets.chomp
 
-puts "Ah... meu bom #{nome}, compreenda que é uma tarefa árdua encontrar alguém nestas paragens. Desde o último ataque do Rei Giovanni, sobreviver tem se tornado uma empreitada difícil. Inúmeros embates contra os infames caçadores da Equipe Rocket e Pokémon agressivos têm assolado nossa jornada. Portanto, rogo que não vagueie desprotegido por essas terras. Venha, escolhamos um Pokémon!"
+puts "\e[33m Ancião ~ Ah... meu bom #{nome}, compreenda que é uma tarefa árdua encontrar alguém nestas paragens. Desde o último ataque do Rei Giovanni, sobreviver tem se tornado uma empreitada difícil. Inúmeros embates contra os infames caçadores da Equipe Rocket e Pokémon agressivos têm assolado nossa jornada. Portanto, rogo que não vagueie desprotegido por essas terras. Venha, escolhamos um Pokémon!\e[0m\n"
 
 pokemon_inicial = EscolherPokemon.escolherInicial
 puts "Você escolheu #{pokemon_inicial.checar_pokedex}!"
