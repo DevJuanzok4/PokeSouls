@@ -120,7 +120,7 @@ def capturar_pokemon(pokemons_cadastrados, pokebolas, chance_fugir)
       puts "O Pokémon fugiu!"
     else
       id_pokemon = rand(5..19)
-      pokemon_aleatorio = pokemons_cadastrados.values.find { |pokemon| puts pokemon }
+      pokemon_aleatorio = pokemons_cadastrados.values.find { |pokemon|  }
 
       if pokemon_aleatorio
         capturados << pokemon_aleatorio
@@ -142,7 +142,7 @@ end
 
 
 #Variaveis de captura de pokemons
-pokebolas = 6
+pokebolas = 5
 chance_fugir = 0.5
 
 
@@ -153,15 +153,17 @@ nome = gets.chomp
 puts "\e[33m Ancião ~ Ah... meu bom #{nome}, compreenda que é uma tarefa árdua encontrar alguém nestas paragens. Desde o último ataque do Rei Giovanni, sobreviver tem se tornado uma empreitada difícil. Inúmeros embates contra os infames caçadores da Equipe Rocket e Pokémon agressivos têm assolado nossa jornada. Portanto, rogo que não vagueie desprotegido por essas terras. Venha, escolhamos um Pokémon!\e[0m\n"
 
 pokemon_inicial = EscolherPokemon.escolherInicial
-puts "Você escolheu #{pokemon_inicial.checar_pokedex}!"
+puts "\e[32mVocê escolheu #{pokemon_inicial.checar_pokedex}!\e[0m"
 
 # Menu do PokeSouls
 loop do
-  puts "1. Progredir na história"
-  puts "2. Capturar Pokémon"
-  puts "3. Ver história"
-  puts "4. Meu time"
-  puts "5. Sair"
+  puts "__________________________"
+  puts "|1. Progredir na história |"
+  puts "|2. Capturar Pokémon      |"
+  puts "|3. Ver história          |"
+  puts "|4. Meu time              |"
+  puts "|5. Sair                  |"
+  puts "---------------------------"
   escolha = gets.chomp.to_i
 
 # Pókemos capturados
