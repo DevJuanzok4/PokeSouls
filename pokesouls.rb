@@ -31,13 +31,14 @@ end
 
 # Classe Pokemon
 class Pokemon
-  attr_reader :nome_pokemon, :hp, :dano, :tipo
+  attr_reader :nome_pokemon, :hp, :dano, :tipo, :id_pokemon
 
-  def initialize(nome_pokemon, hp, dano, tipo)
+  def initialize(nome_pokemon, hp, dano, tipo,id_pokemon)
     @nome_pokemon = nome_pokemon
     @hp = hp.to_i
     @dano = dano.to_i
     @tipo = tipo
+    @id_pokemon = id_pokemon.to_i
   end
 
 #função de atacar
@@ -72,13 +73,13 @@ class EscolherPokemon
 
     case escolha
     when 1
-      return Pokemon.new("Bulbasaur", 150, 15, "Planta")
+      return Pokemon.new("Bulbasaur", 150, 15, "Planta", 1)
     when 2
-      return Pokemon.new("Charmander", 90, 30, "Fogo")
+      return Pokemon.new("Charmander", 90, 30, "Fogo", 2)
     when 3
-      return Pokemon.new("Squirtle", 120, 20, "Água")
+      return Pokemon.new("Squirtle", 120, 20, "Água", 3)
     when 4
-      return Pokemon.new("Pikachu", 95, 40, "Elétrico")
+      return Pokemon.new("Pikachu", 95, 40, "Elétrico", 4)
     else
       puts "Opção inválida! Escolha de 1 a 4."
       EscolherPokemon.escolherInicial
@@ -88,27 +89,28 @@ end
 
 
 # Hash de Pokémons cadastrados para os bosses e para capturas
-pokemons_cadastrados = {
-  "Torchic" => Pokemon.new("Torchic", 50, 30, "Fogo"),
-  "Raltz" => Pokemon.new("Raltz", 60, 35, "Fada"),
-  "Lapras" => Pokemon.new("Lapras", 200, 80, "Água"),
-  "Geodude" => Pokemon.new("Geodude", 70, 30, "Pedra"),
-  "Gardevoir" => Pokemon.new("Gardevoir", 100, 70, "Fada"),
-  "Gyarados" => Pokemon.new("Gyarados", 200, 95, "Dragão"),
-  "Aipom" => Pokemon.new("Aipom", 50, 40, "Normal"),
-  "Alakazam" => Pokemon.new("Alakazam", 70, 80, "Psíquico"),
-  "Snorlax" => Pokemon.new("Snorlax", 300, 30, "Normal"),
-  "Aerodactyl" => Pokemon.new("Aerodactyl", 120, 60, "Voador/Dragão"),
-  "Gallade" => Pokemon.new("Gallade", 100, 80, "Lutador"),
-  "Tyranitar" => Pokemon.new("Tyranitar", 250, 110, "Pedra/Dragão"),
-  "Persian" => Pokemon.new("Persian", 70, 50, "Normal"),
-  "Garchomp" => Pokemon.new("Garchomp", 85, 100, "Dragão/Terra"),
-  "Mewtwo" => Pokemon.new("Mewtwo", 500, 150, "Psíquico")
-}
 
+  pokemons_cadastrados = {
+    5 => Pokemon.new("Torchic", 50, 30, "Fogo",5),
+    6 => Pokemon.new("Raltz", 60, 35, "Fada",6),
+    7 => Pokemon.new("Lapras", 200, 80, "Água,",7),
+    8 => Pokemon.new("Geodude", 70, 30, "Pedra",8),
+    9 => Pokemon.new("Gardevoir", 100, 70, "Fada",9),
+    10 => Pokemon.new("Gyarados", 200, 95, "Dragão",10),
+    11 => Pokemon.new("Aipom", 50, 40, "Normal",11),
+    12 => Pokemon.new("Alakazam", 70, 80, "Psíquico",12),
+    13 => Pokemon.new("Snorlax", 300, 30, "Normal",13),
+    14 => Pokemon.new("Aerodactyl", 120, 60, "Voador/Dragão",14),
+    15 => Pokemon.new("Gallade", 100, 80, "Lutador",15),
+    16 => Pokemon.new("Tyranitar", 250, 110, "Pedra/Dragão",16),
+    17 => Pokemon.new("Persian", 70, 50, "Normal",17),
+    18 => Pokemon.new("Garchomp", 85, 100, "Dragão/Terra",18),
+    19 => Pokemon.new("Mewtwo", 500, 150, "Psíquico",19)
+  }
 
-# Função de captura de pokemons
-def capturar_pokemon(pokemon, pokebolas, chance_fugir)
+def capturar_pokemon(pokemons_cadastrados, pokebolas, chance_fugir)
+  capturados = []
+
   while pokebolas > 0
     puts "Você encontrou um Pokémon selvagem!"
     puts "Pressione Enter para tentar capturá-lo..."
@@ -117,18 +119,27 @@ def capturar_pokemon(pokemon, pokebolas, chance_fugir)
     if rand <= chance_fugir
       puts "O Pokémon fugiu!"
     else
-      pokemons_keys = pokemon.keys
-      pokemon_aleatorio_key = pokemons_keys.sample
-      pokemon_aleatorio = pokemon[pokemon_aleatorio_key]
+      id_pokemon = rand(1..19)
+      pokemon_aleatorio = pokemons_cadastrados.values.find { |pokemon| id_pokemon == id_pokemon}
 
-      puts "Você capturou um #{pokemon_aleatorio.nome_pokemon}!"
-      pokebolas -= 1
-      puts "Você ainda tem #{pokebolas} Pokébolas restantes."
+      if pokemon_aleatorio
+        capturados << pokemon_aleatorio
+        pokebolas -= 1
+        puts "Você capturou um #{pokemon_aleatorio.nome_pokemon}!"
+        puts "Você ainda tem #{pokebolas} Pokébolas restantes."
+      else
+        puts "Nenhum Pokémon encontrado com o ID #{pokemon_id_aleatorio}."
+      end
     end
   end
 
   puts "Você não tem mais Pokébolas!"
+  puts "Pokémons capturados:"
+  capturados.each do |pokemon|
+    puts "#{pokemon.nome_pokemon} (Tipo: #{pokemon.tipo}, HP: #{pokemon.hp})"
+  end
 end
+
 
 #Variaveis de captura de pokemons
 pokebolas = 6
@@ -154,17 +165,18 @@ loop do
   escolha = gets.chomp.to_i
 
 # Pókemos capturados
-
 capturados = []
 
 # Visualização de pokemons capturados
 def mostrar_pokemons_capturados(capturados)
   if capturados.empty?
     puts "Você ainda não capturou nenhum Pokémon."
+    puts "Somente está com o puts #{pokemon_inicial.nome_pokemon} (Tipo: #{pokemon.tipo}, HP: #{pokemon.hp} )"
   else
     puts "Pokémons capturados:"
     capturados.each do |pokemon|
-      puts "#{capturados.nome_pokemon} (Tipo: #{pokemon.tipo}, HP: #{pokemon.hp})"
+      puts "#{pokemon_aleatorio.nome_pokemon} (Tipo: #{pokemon.tipo}, HP: #{pokemon.hp})"
+      puts "#{pokemon_inicial.nome_pokemon} (Tipo: #{pokemon.tipo}, HP: #{pokemon.hp} )"
     end
   end
 end
