@@ -150,13 +150,12 @@ end
 pokebolas = 5
 chance_fugir = 0.5
 
-
 # começo do jogo
-puts "\e[33m Ancião ~ Em verdade vos digo, quem sois vós, senhor?\e[0m\n"
+puts "\e[35m Ancião ~ Em verdade vos digo, quem sois vós, senhor?\e[0m\n"
 print "Digite seu Nome nobre viajante:\n"
 nome = gets.chomp
 
-puts "\e[33m Ancião ~ Ah... meu bom #{nome}, compreenda que é uma tarefa árdua encontrar alguém nestas paragens.\n Desde o último ataque do Rei Giovanni, sobreviver tem se tornado uma empreitada difícil.\n Inúmeros embates contra os infames caçadores da Equipe Rocket e Pokémon agressivos têm assolado nossa jornada.\n Portanto, rogo que não vagueie desprotegido por essas terras.\n Venha, escolhamos um Pokémon!\e[0m\n\n"
+puts " \n\e[35mAncião\e[0m ~ \e[33mAh... meu bom #{nome}, compreenda que é uma tarefa árdua encontrar alguém nestas paragens.\n Desde o último ataque do Rei Giovanni, sobreviver tem se tornado uma empreitada difícil.\n Inúmeros embates contra os infames caçadores da Equipe Rocket e Pokémon agressivos têm assolado nossa jornada.\n Portanto, rogo que não vagueie desprotegido por essas terras.\n Venha, escolhamos um Pokémon!\e[0m\n\n"
 
 pokemon_inicial = EscolherPokemon.escolherInicial
 puts "\e[32mVocê escolheu #{pokemon_inicial.checar_pokedex}!\e[0m"
