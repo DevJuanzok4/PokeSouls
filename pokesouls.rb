@@ -82,29 +82,44 @@ class EscolherPokemon
   end
 end
 
+
+
+
+pokemons = {
+
+
+
+
+}
+
 # Pokémons
 
-pokemons_cadastrados = [
-torchic = Pokemon.new("Torchic", 50, 30, "Fogo"),
-raltz = Pokemon.new("Raltz", 60, 35, "Fada"),
-lapras = Pokemon.new("Lapras", 200, 80, "Água"),
+pokemons_cadastrados = {
+  "Torchic" => Pokemon.new("Torchic", 50, 30, "Fogo"),
+  "Raltz" => Pokemon.new("Raltz", 60, 35, "Fada"),
+  "Lapras" => Pokemon.new("Lapras", 200, 80, "Água"),
+  "Geodude" => Pokemon.new("Geodude", 70, 30, "Pedra"),
+  "Gardevoir" => Pokemon.new("Gardevoir", 100, 70, "Fada"),
+  "Gyarados" => Pokemon.new("Gyarados", 200, 95, "Dragão"),
+  "Aipom" => Pokemon.new("Aipom", 50, 40, "Normal"),
+  "Alakazam" => Pokemon.new("Alakazam", 70, 80, "Psíquico"),
+  "Snorlax" => Pokemon.new("Snorlax", 300, 30, "Normal"),
+  "Aerodactyl" => Pokemon.new("Aerodactyl", 120, 60, "Voador/Dragão"),
+  "Gallade" => Pokemon.new("Gallade", 100, 80, "Lutador"),
+  "Tyranitar" => Pokemon.new("Tyranitar", 250, 110, "Pedra/Dragão"),
+  "Persian" => Pokemon.new("Persian", 70, 50, "Normal"),
+  "Garchomp" => Pokemon.new("Garchomp", 85, 100, "Dragão/Terra"),
+  "Mewtwo" => Pokemon.new("Mewtwo", 500, 150, "Psíquico")
+}
 
-geodude = Pokemon.new("Geodude", 70, 30, "Pedra"),
-gardevoir = Pokemon.new("Gardevoir", 100, 70, "Fada"),
-gyarados = Pokemon.new("Gyarados", 200, 95, "Dragão"),
+# Convertendo as chaves da hash em um array
+pokemons_keys = pokemons_cadastrados.keys
 
-aipom = Pokemon.new("Aipom", 50, 40, "Normal"),
-alakazam = Pokemon.new("Alakazam", 70, 80, "Psíquico"),
-snorlax = Pokemon.new("Snorlax", 300, 30, "Normal"),
+# Chave aleatória
+pokemon_aleatorio_key = pokemons_keys.sample
 
-aerodactyl = Pokemon.new("Aerodactyl", 120, 60, "Voador/Dragão"),
-gallade = Pokemon.new("Gallade", 100, 80, "Lutador"),
-tyranitar = Pokemon.new("Tyranitar", 250, 110, "Pedra/Dragão"),
-
-persian = Pokemon.new("Persian", 70, 50, "Normal"),
-garchomp = Pokemon.new("Garchomp", 85, 100, "Dragão/Terra"),
-mewtwo = Pokemon.new("Mewtwo", 500, 150, "Psíquico")
-]
+# pokemon aleatório com a chave escolhida
+pokemon_aleatorio = pokemons_cadastrados[pokemon_aleatorio_key]
 
 
 
@@ -123,7 +138,7 @@ def capturar_pokemon(pokemons, pokebolas, chance_fugir)
       puts "O Pokémon fugiu!"
     else
       pokemon_aleatorio = pokemons.sample
-      puts "Você capturou um #{pokemon_aleatorio.nome_pokemon}!"
+      puts "Você capturou um #{pokemon_aleatorio.nome}!"
       pokebolas -= 1
       puts "Você ainda tem #{pokebolas} Pokébolas restantes."
     end
