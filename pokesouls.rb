@@ -98,31 +98,31 @@ garchomp = Pokemon.new("Garchomp", 85, 100, "Dragão/Terra"),
 mewtwo = Pokemon.new("Mewtwo", 500, 150, "Psíquico")
 ]
 
+# Captura de pókemons
+
 pokebolas = 6
 chance_fugir = 0.5
-
 def capturar_pokemon(pokemons, pokebolas, chance_fugir)
-  system("clear") || system("cls")
+  while pokebolas > 0
+    puts "Você encontrou um Pokémon selvagem!"
+    puts "Pressione Enter para tentar capturá-lo..."
+    gets.chomp
 
- if pokebolas > 1
-   puts "Você encontraste um Pokémon selvagem"
-   puts "Pressione Enter para tentar capturar ele!..."
-   gets.chomp
+    if rand <= chance_fugir
+      puts "O Pokémon fugiu!"
+    else
+      pokemon_aleatorio = pokemons.sample
+      puts "Você capturou um #{pokemon_aleatorio.nome_pokemon}!"
+      pokebolas -= 1
+      puts "Você ainda tem #{pokebolas} Pokébolas restantes."
+    end
+  end
 
-   if rand <= chance_fugir
-     puts "Merda! o Pokémon Fugiu"
-else
-  pokemon_aleatorio = pokemons.sample
-  puts "\e[32mVocê capturou um #{pokemon_aleatorio.nome_pokemon}\e[32m"
-
-  pokebolas -= 1
-  puts "Você agora tem #{pokebolas} Pokébolas restantes."
-end
-else
   puts "Você não tem mais Pokébolas!"
 end
 
- end
+# começo do jogo
+
 print "AHM! Quem é você? "
 nome = gets.chomp
 puts "Ah... meu bom #{nome}, compreenda que é uma tarefa árdua encontrar alguém nestas paragens. Desde o último ataque do Rei Giovanni, sobreviver tem se tornado uma empreitada difícil. Inúmeros embates contra os infames caçadores da Equipe Rocket e Pokémon agressivos têm assolado nossa jornada. Portanto, rogo que não vagueie desprotegido por essas terras. Venha, escolhamos um Pokémon!"
@@ -130,12 +130,17 @@ puts "Ah... meu bom #{nome}, compreenda que é uma tarefa árdua encontrar algu�
 pokemon_inicial = EscolherPokemon.escolherInicial
 puts "Você escolheu #{pokemon_inicial.checar_pokedex}!"
 
+# Menu do PokeSouls
+
 loop do
   puts "1. Progredir na história"
   puts "2. Capturar Pokémon"
   puts "3. Ver história"
   puts "4. Sair"
   escolha = gets.chomp.to_i
+
+
+# Iicio do case
 
   case escolha
   when 1
