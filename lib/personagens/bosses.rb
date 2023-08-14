@@ -1,5 +1,5 @@
 
-#Classe de Bosses
+# Arquivo para os Bosses
 
 class bosses
   attr_reader :nome_boss

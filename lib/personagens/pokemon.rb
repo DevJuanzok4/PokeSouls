@@ -1,3 +1,4 @@
+# Arquivo para os Pokemons
 class Pokemon
   attr_reader :nome, :tipo_pokemon, :hp, :dano, :level
 

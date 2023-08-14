@@ -1,4 +1,4 @@
-# Classe de treinador (Oponentes)
+# arquivo para os treinadores (Oponentes)
 class Treinador
   attr_reader :nome
 
