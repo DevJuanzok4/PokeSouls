@@ -3,7 +3,7 @@ require 'play'
 def tocar_musica
   Thread.new do
     loop do
-      Play.audio('musica.mp3')
+      Play.audio('pokesouls.mp3')
     end
   end
 end
