@@ -1,8 +1,19 @@
-music_file_path = "pokesouls.mp3"  # Substitua pelo caminho do seu arquivo de música
+#Função para reproduzir a música em segundo plano
+#def play_music(music_file_path)
+  #fork do
+    #system("mpg123", "-q", "-o", "alsa", music_file_path)
+  #end
+ #end
 
+#Caminho para o arquivo de música
+#music_file_path = "pksouls.mp3"
+
+# Inicia a reprodução da música em segundo plano
+#play_music(music_file_path)
 
 #Fonte Grande para titulos
 titulo = "\e[30;48;5;235m\e[2J\e[H\e[3J\e[8;40;160t\e[5;90;140t\e[1;130t\e[23;58;170t\e[28;38;175t\e[17;50;200t\e[16;100;200t\e[21;100;220t\e[23;110;240t\e[24;150;250t\e[25;170;250t\e[26;200;255t\e[28;230;255t\e[30;255;255t\e[31;255;240t\e[32;255;230t\e[33;255;215t\e[34;255;200t\e[35;255;180t\e[36;255;160t\e[37;255;130t\e[38;255;100t\e[39;255;70t\e[40;255;40t\e[41;255;10t\e[42;240;0t\e[43;220;0t\e[44;200;0t\e[45;180;0t\e[46;160;0t\e[47;140;0t\e[48;120;0t\e[49;100;0t\e[0m"
+
 # Classe Jogador
 class Jogador
   attr_reader :nome, :time_jogador
@@ -10,6 +21,7 @@ class Jogador
   def initialize(nome, time)
     @nome = nome
     @time_jogador = time_jogador
+    time_jogador = [pokemon_inicial]
   end
 end
 
@@ -66,6 +78,7 @@ class Pokemon
 end
 
 # Escolha do pokemon inicial
+
 class EscolherPokemon
   def self.escolherInicial
     puts "============================"
@@ -158,17 +171,16 @@ end
     puts "Você não tem mais Pokébolas!"
   end
 
+#Inicio da história
 
-
-  def historia_parte_um
     puts "==========================="
     puts "|  \e[31mƤօƙҽՏօuƖs\e[0m              |"
-    puts "==========================="
+    puts "===========================\n\n"
 
 
 
-    puts "\e[35m (Ancião)\e[0m ~ \e[33m \e[3mEm verdade vos digo, quem sois vós, senhor?\e[0m\e[0m\n"
-    print "\e[34m(Digite seu Nome nobre viajante:)\e[0m\n"
+    puts "\e[35m (Ancião)\e[0m ~ \e[33m \e[3mEm verdade vos digo, quem sois vós, senhor?\e[0m\e[0m\n\n"
+    print "\e[34m(Digite seu Nome nobre viajante:)\e[0m\n\n"
     nome = gets.chomp
 
     #Escolha o Pokemon
@@ -176,15 +188,16 @@ end
     puts " \n\e[35m(Ancião)\e[0m ~ \e[3m\e[33mAh... meu bom \e[35m#{nome}\e[0m\e[33m, \e[3mcompreenda que é uma tarefa árdua encontrar alguém nestas paragens.\n Desde o último ataque do Rei Giovanni, sobreviver tem se tornado uma empreitada difícil.\n Inúmeros embates contra os infames caçadores da Equipe Rocket e Pokémon agressivos têm assolado nossa jornada.\n Portanto, rogo que não vagueie desprotegido por essas terras.\n Venha, escolhamos um Pokémon!\e[0m\e[0m\n\n"
 
     pokemon_inicial = EscolherPokemon.escolherInicial
+    system("clear") || system("cls")
+
+    puts "==========================="
     puts "\e[32mVocê escolheu #{pokemon_inicial.checar_pokedex}!\e[0m"
-
-
-    end
+    puts "==========================="
 
 
 
 # Menu Do PokeSouls
-system("mpg123", music_file_path)
+
     loop do
       puts "==========================="
       puts "|  \e[31mƤօƙҽՏօuƖs\e[0m              |"
@@ -198,19 +211,23 @@ system("mpg123", music_file_path)
       escolha = gets.chomp.to_i
 
     # Iicio do case de Menu
+
       case escolha
 
     #Modo História
+
       when 1
         historia_parte_um
 
     #Capturar Pokemons
+
       when 2
         capturar_pokemon(pokemons_cadastrados, pokemons_capturados, pokebolas, chance_fugir)
 
     #História do Pokesouls
-    when 3
 
+    when 3
+      system("clear") || system("cls")
       puts  "=========================================================================================="
       puts  "História de ƤօƙҽՏօuƖs"
       puts  "=========================================================================================="
@@ -218,24 +235,26 @@ system("mpg123", music_file_path)
       print "\e[34m(Pressione Enter para Continuar a História)\e[0m\e[0m"
       gets.chomp
 
-      puts "\n\e[35m (Ancião) \e[0m ~ \e[33m \e[3m Com cidades outrora pacíficas estavam sob constante ameaça, assoladas por pokémons corrompidos e monstros agressivos.\e[0m\e[0m\n"
-      print "\e[34m (Pressione Enter para Continuar a História) \e[0m"
+      puts "\n\e[35m(Ancião)\e[0m ~ \e[33m\e[3m Com cidades outrora pacíficas estavam sob constante ameaça, assoladas por pokémons corrompidos e monstros agressivos.\e[0m\e[0m\n"
+      print "\e[34m(Pressione Enter para Continuar a História) \e[0m\n"
       gets.chomp
 
-      puts "\n\e[35m(Ancião)\e[0m ~ \e[33m\e[3mNo meio desse caos, um único treinador, munido de coragem e determinação, encontrou um parceiro improvável -\n um único Pokémon disposto a lutar por sua causa.\e[0m\e[0m\n"
-      print "\e[34m(Pressione Enter para Continuar a História)\e[0m"
+
+      puts "\n\e[35m(Ancião)\e[0m ~ \e[33m\e[3mNo meio desse caos, um único treinador, munido de coragem e determinação, encontrou um parceiro improvável -\n um único Pokémon disposto a lutar por sua causa, um .\e[0m\e[0m\n"
+      print "\e[34m(Pressione Enter para Continuar a História)\e[0m\n"
       gets.chomp
 
       puts "\n\e[35m(Ancião)\e[0m ~ \e[33m\e[3mJuntos, eles começaram a desafiar os Caçadores Rocket, buscando unir outros treinadores e pokémons resistentes que compartilhavam sua vontade de desafiar o regime de Giovanni.\e[0m\n"
       print "\e[34m(Pressione Enter para Continuar a História)\e[0m\n"
       gets.chomp
 
-      puts "\e[35m(Ancião)\e[0m ~ \e[33m\e[3mAgora me entende #{nome}?\e[0m\e[0m\n"
+      puts "\n\e[35m(Ancião)\e[0m ~ \e[33m\e[3mAgora me entende \e[35m#{nome}?\e[0m\e[0m\n"
       print "\e[34m(Pressione Enter para Responder ao Ancião)\e[0m\n"
       gets.chomp
 
       puts  "\e[35m(#{nome})\e[0m ~ \e[33m\e[3mSim, Compreendo..... preciso fazer isso.......\e[33m\e[3m\e[0m\n"
       puts  "==========================================================================================\n\n\n"
+
 
     when 4
       mostrar_pokemons_capturados(pokemon_inicial, pokemons_capturados)
@@ -243,22 +262,18 @@ system("mpg123", music_file_path)
       gets.chomp
     when 5
       puts "\e[35m(Ancião)\e[0m ~ \e[33m \e[3mChegou a hora de nos separarmos, mas apenas temporariamente. Que nossos caminhos se cruzem novamente em breve, e que vossas jornadas sejam seguras e prósperas. Até que nos encontremos novamente\e[0m \e[35m#{nome}.\e[0m\e[0m\n"
+      break
     else
       puts "Opção inválida! Escolha de 1 a 5."
     end
   end
 
+#array de pokemons capturados
 
+   pokemons_capturados = []
 
+# Visualização de pokemons capturados
 
-
-
-
-
-
-  pokemons_capturados = []
-
-  # Visualização de pokemons capturados
   def mostrar_pokemons_capturados(pokemon_inicial, pokemons_capturados)
     puts "Pokémons capturados:"
 
@@ -274,5 +289,7 @@ system("mpg123", music_file_path)
   end
 
 # Inicialização do jogo
+
+
 game = PokesoulsGame.new
 game.run
