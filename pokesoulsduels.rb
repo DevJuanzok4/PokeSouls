@@ -1,8 +1,8 @@
 class Player_1
-  attr_reader :nome, :itens, :time_jogador
+  attr_reader :nome_1, :itens, :time_jogador
 
-  def initialize(nome, itens, time_jogador)
-    @nome = nome
+  def initialize(nome_1, itens, time_jogador)
+    @nome_1 = nome_1
     @itens = itens
     @time_jogador = time_jogador
   end
@@ -15,8 +15,8 @@ end
 class Player_2
   attr_reader :nome, :itens, :time_jogador
 
-  def initialize(nome, itens, time_jogador)
-    @nome = nome
+  def initialize(nome_2, itens, time_jogador)
+    @nome_2 = nome_2
     @itens = itens
     @time_jogador = time_jogador
   end
@@ -51,5 +51,9 @@ puts "==========================="
 puts "|      ƤօƙҽՏօuƖs          |"
 puts "===========================\n\n"
 print "Digite o Nome do primeiro jogador:"
-nome = gets.chomp
-puts "#{nome}"
+nome_1 = gets.chomp
+puts "#{nome_1}"
+
+print "Digite o Nome do primeiro jogador:"
+nome_2 = gets.chomp
+puts "#{nome_2}"
