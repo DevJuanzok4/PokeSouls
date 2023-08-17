@@ -1,8 +1,9 @@
-class Player_1
-  attr_reader :nome_1, :itens, :time_jogador
+#Classes para o jogo
+class P1
+  attr_reader :p1, :itens, :time_jogador
 
   def initialize(nome_1, itens, time_jogador)
-    @nome_1 = nome_1
+    @p1 = p1
     @itens = itens
     @time_jogador = time_jogador
   end
@@ -12,11 +13,11 @@ class Player_1
   end
 end
 
-class Player_2
+class P2
   attr_reader :nome, :itens, :time_jogador
 
   def initialize(nome_2, itens, time_jogador)
-    @nome_2 = nome_2
+    @p2 = p2
     @itens = itens
     @time_jogador = time_jogador
   end
@@ -46,7 +47,10 @@ class Movimento
     @dano = dano
   end
 end
+# Fim das classes
 
+
+#Array de Pokemons
 pokemons = [
   Pokemon.new("Pikachu", "Elétrico", 100, 20, 5),
   Pokemon.new("Bulbasaur", "Planta", 120, 18, 5),
@@ -65,24 +69,33 @@ pokemons = [
   Pokemon.new("Onix", "Pedra", 120, 22, 5)
 ]
 
-def Escolher_pokemon(pokemons,Player_1, Player_2)
-  puts "Escolha seu POkemon"
-  pokemons.each.with_index do |pokemon,index|
-    puts "#{index +1}. #{pokemon.nome}"
-end
-  print "#{.nome}, escolha um Pokémon (digite o número): "
-  escolha = gets.chomp.to_i
+time_p1 = [
+]
 
-  jogador.time_jogador << pokemons_disponiveis[escolha - 1]
-end
 
+
+#Começo do Jogo
 puts "==========================="
 puts "|      ƤօƙҽՏօuƖs          |"
 puts "===========================\n\n"
-print "Digite o Nome do primeiro jogador:"
-nome_1 = gets.chomp
-puts "#{nome_1}"
+print "(Digite o Nome do Primeiro jogador:)"
+p1 = gets.chomp
+puts "#{p1}"
 
-print "Digite o Nome do primeiro jogador:"
-nome_2 = gets.chomp
-puts "#{nome_2}"
+print "Digite o Nome do Segundo jogador:"
+p2 = gets.chomp
+puts "#{p2}"
+
+puts "╠#{p1} X #{p2}╣"
+
+
+#Escolha de pokemons
+puts "\n#{p1} escolha seus pokemons:"
+escolha_p1 = gets.chomp.split(',')
+escolha_p1.each do |pokemon_nome|
+  pokemon = pokemon.find {|p| p.nome == pokemon_nome }
+ p1.time_jogador << pokemon if pokemon
+end
+
+puts "\nTime de #{p1}: #{p1.time_jogador.map(&:nome).join(', ')}"
+
