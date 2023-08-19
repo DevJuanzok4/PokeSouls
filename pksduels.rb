@@ -1,25 +1,11 @@
-#Classes para o jogo
-class P1
-  attr_reader :p1, :itens, :time_jogador
-
-  def initialize(nome_1, itens, time_jogador)
-    @p1 = p1
-    @itens = itens
-    @time_jogador = time_jogador
-  end
-
-  def mochila_de_itens(item)
-    @itens << item
-  end
-end
-
-class P2
+# Classes para o jogo
+class Jogador
   attr_reader :nome, :itens, :time_jogador
 
-  def initialize(nome_2, itens, time_jogador)
-    @p2 = p2
-    @itens = itens
-    @time_jogador = time_jogador
+  def initialize(nome)
+    @nome = nome
+    @itens = []
+    @time_jogador = []
   end
 
   def mochila_de_itens(item)
@@ -39,18 +25,7 @@ class Pokemon
   end
 end
 
-class Movimento
-  attr_reader :nome, :dano
-
-  def initialize(nome, dano)
-    @nome = nome
-    @dano = dano
-  end
-end
-# Fim das classes
-
-
-#Array de Pokemons
+# Array de Pokemons
 pokemons = [
   Pokemon.new("Pikachu", "Elétrico", 100, 20, 5),
   Pokemon.new("Bulbasaur", "Planta", 120, 18, 5),
@@ -66,36 +41,36 @@ pokemons = [
   Pokemon.new("Meowth", "Normal", 95, 16, 5),
   Pokemon.new("Koffing", "Venenoso", 100, 19, 5),
   Pokemon.new("Ditto", "Normal", 80, 14, 5),
-  Pokemon.new("Onix", "Pedra", 120, 22, 5)
+  Pokemon.new("Onix", "Pedra", 120, 22, 5),
+  Pokemon.new("Squirtle", "Água", 105, 19, 5),
+  Pokemon.new("Bulbasaur", "Planta", 120, 18, 5),
+  Pokemon.new("Charizard", "Fogo", 130, 24, 5),
+  Pokemon.new("Snorlax", "Normal", 150, 28, 5),
+  Pokemon.new("Mewtwo", "Psíquico", 160, 30, 5)
+  # ... adicione os outros Pokemons aqui
 ]
 
-time_p1 = [
-]
-
-
-
-#Começo do Jogo
+# Começo do Jogo
 puts "==========================="
 puts "|      ƤօƙҽՏօuƖs          |"
 puts "===========================\n\n"
-print "(Digite o Nome do Primeiro jogador:)"
-p1 = gets.chomp
-puts "#{p1}"
+
+print "Digite o Nome do Primeiro jogador:"
+nome_p1 = gets.chomp
+p1 = Jogador.new(nome_p1)
 
 print "Digite o Nome do Segundo jogador:"
-p2 = gets.chomp
-puts "#{p2}"
+nome_p2 = gets.chomp
+p2 = Jogador.new(nome_p2)
 
-puts "╠#{p1} X #{p2}╣"
+puts "╠#{p1.nome} X #{p2.nome}╣"
 
-
-#Escolha de pokemons
-puts "\n#{p1} escolha seus pokemons:"
+# Escolha de pokemons
+puts "\n#{p1.nome}, escolha seus pokemons (separados por vírgula):"
 escolha_p1 = gets.chomp.split(',')
 escolha_p1.each do |pokemon_nome|
-  pokemon = pokemon.find {|p| p.nome == pokemon_nome }
- p1.time_jogador << pokemon if pokemon
+  pokemon = pokemons.find { |p| p.nome == pokemon_nome }
+  p1.time_jogador << pokemon if pokemon
 end
 
-puts "\nTime de #{p1}: #{p1.time_jogador.map(&:nome).join(', ')}"
-
+puts "\nTime de #{p1.nome}: #{p1.time_jogador.map(&:nome).join(', ')}"
