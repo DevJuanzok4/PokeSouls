@@ -6,7 +6,7 @@ def play_music(music_file_path)
  end
 
 #Caminho para o arquivo de música
-music_file_path = "pksouls.mp3"
+music_file_path = "./assets/pokesouls.mp3"
 
 # Inicia a reprodução da música em segundo plano
 play_music(music_file_path)
@@ -231,7 +231,7 @@ end
       puts  "=========================================================================================="
       puts  "História de ƤօƙҽՏօuƖs"
       puts  "=========================================================================================="
-      puts "\n\e[35m(Ancião)\e[0m ~ \e[33m\e[3mNesses tempos antigos, a região de Kanto estava mergulhada em escuridão devido aos ataques dos Caçadores Rocket, servos leais do temível Rei Giovanni.\e[0m\e[0m\n"
+      puts "\n\e[35m(Ancião)\e[0m ~ \e[33m\e[3mNesses tempos antigos, a região de Kanto estava mergulhada em escuridão devido aos ataques dos Caçadores Rocket, servos leais do temível Rei Giovanni.\e[0m\e[0m\n\n"
       print "\e[34m(Pressione Enter para Continuar a História)\e[0m\e[0m"
       gets.chomp
 
@@ -248,7 +248,7 @@ end
       print "\e[34m(Pressione Enter para Continuar a História)\e[0m\n"
       gets.chomp
 
-      puts "\n\e[35m(Ancião)\e[0m ~ \e[33m\e[3mAgora me entende \e[35m#{nome}?\e[0m\e[0m\n"
+      puts "\n\e[35m(Ancião)\e[0m ~ \e[33m\e[3mAgora me entende \e[35m#{nome}?\e[0m\e[0m\n\n"
       print "\e[34m(Pressione Enter para Responder ao Ancião)\e[0m\n"
       gets.chomp
 
