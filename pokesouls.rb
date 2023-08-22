@@ -288,7 +288,8 @@ end
     end
   end
 
-# Inicialização do jogo
+
+  # Inicialização do jogo
 
 
 game = PokesoulsGame.new
