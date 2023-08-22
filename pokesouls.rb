@@ -1,15 +1,15 @@
 #Função para reproduzir a música em segundo plano
-#def play_music(music_file_path)
-  #fork do
-    #system("mpg123", "-q", "-o", "alsa", music_file_path)
-  #end
- #end
+def play_music(music_file_path)
+  fork do
+    system("mpg123", "-q", "-o", "alsa", music_file_path)
+  end
+ end
 
 #Caminho para o arquivo de música
-#music_file_path = "pksouls.mp3"
+music_file_path = "pksouls.mp3"
 
 # Inicia a reprodução da música em segundo plano
-#play_music(music_file_path)
+play_music(music_file_path)
 
 #Fonte Grande para titulos
 titulo = "\e[30;48;5;235m\e[2J\e[H\e[3J\e[8;40;160t\e[5;90;140t\e[1;130t\e[23;58;170t\e[28;38;175t\e[17;50;200t\e[16;100;200t\e[21;100;220t\e[23;110;240t\e[24;150;250t\e[25;170;250t\e[26;200;255t\e[28;230;255t\e[30;255;255t\e[31;255;240t\e[32;255;230t\e[33;255;215t\e[34;255;200t\e[35;255;180t\e[36;255;160t\e[37;255;130t\e[38;255;100t\e[39;255;70t\e[40;255;40t\e[41;255;10t\e[42;240;0t\e[43;220;0t\e[44;200;0t\e[45;180;0t\e[46;160;0t\e[47;140;0t\e[48;120;0t\e[49;100;0t\e[0m"
