@@ -171,7 +171,7 @@ end
     puts "Você não tem mais Pokébolas!"
   end
 
-#Inicio da história
+    #Inicio da história
 
     puts "==========================="
     puts "|  \e[31mƤօƙҽՏօuƖs\e[0m              |"
@@ -196,7 +196,7 @@ end
 
 
 
-# Menu Do PokeSouls
+    # Menu Do PokeSouls
 
     loop do
       puts "==========================="
@@ -290,7 +290,5 @@ end
 
 
   # Inicialização do jogo
-
-
 game = PokesoulsGame.new
 game.run
